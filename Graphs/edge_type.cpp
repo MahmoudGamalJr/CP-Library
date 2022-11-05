@@ -7,7 +7,8 @@ vector<vector<int> > adj;
 vector<int> parent, status;
 
 
-void edge_type(int u) {
+void edge_type(int u) 
+{
     status[u] = EXPLORED;
     for (int v:adj[u]) {
         if (!status[v]) {    //UNVISITED
@@ -25,7 +26,8 @@ void edge_type(int u) {
     status[u] = VISITED;
 }
 
-int main() {
+int main() 
+{
     status.assign(N, UNVISITED);
     parent.assign(N, 0);
     adj.resize(N);
