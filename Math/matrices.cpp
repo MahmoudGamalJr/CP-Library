@@ -4,12 +4,14 @@ typedef vector<double> row;
 typedef vector<row> matrix;
 
 //returns matrix of 0s
-matrix zero(int n, int m) {
+matrix zero(int n, int m) 
+{
 	return matrix(n, row(m, 0));
 }
 
 //returns the identity matrix all 0 except diagonals 1
-matrix identity(int n) {
+matrix identity(int n)
+{
 	matrix ret = zero(n, n);
 	rep(i,ret){
 		ret[i][i] = 1;
