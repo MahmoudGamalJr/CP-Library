@@ -43,14 +43,16 @@ void floyd() {
 //preprocess prev during floyd
 //prev[i][j] is initially i
 //if k is an intermediary between i and j then prev[i][j] = k
-void trace(int i, int j) {
+void trace(int i, int j)
+{
 	if(i != j)) trace(i, prev[i][j]);
 	cout << j << ' ';
 }
 
 //checks if the graph contains any neg cycles
 //flip the signs for searching for pos cycles
-bool isNegativeCycle() {
+bool isNegativeCycle() 
+{
 	for (int i = 0; i < n; i++) {
 		if (adj[i][i] < 0)
 			return true;
