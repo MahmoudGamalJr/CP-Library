@@ -1,7 +1,8 @@
 // returns a^k % m
-ll powmodk(ll a, ll k, ll m) {
+long long powmodk(long long a, long long k, long long m) 
+{
     if (k == 0) return 1;
-    ll r = powmodk(a, k / 2, m);
+    long long r = powmodk(a, k / 2, m);
     r = (r * r) % m;
     if (k % 2) r = (r * a) % m;
     return r;
@@ -9,8 +10,8 @@ ll powmodk(ll a, ll k, ll m) {
 
 
 //obtain n factorial mod p using wilson theorem
-ll factmodprime(ll n, ll p) { //O(plogn)
-    ll res = 1;
+long long factmodprime(long long n, long long p) { //O(plogn)
+    long long res = 1;
     while (n > 0) {
         for (ll i = 1; i <= n % p; i++)
             res = (res * i) % p;
@@ -32,20 +33,20 @@ int factprimepow(int x, int p){ //O(logp(x))
     return pow;
 }
 
-ll nckmodprime(ll n, ll k, ll p) {
-    ll pow = factprimepow(n, p) - factprimepow(k, p) - factprimepow(n - k, p);
+long long nckmodprime(long long n, long long k, long long p) {
+    long long pow = factprimepow(n, p) - factprimepow(k, p) - factprimepow(n - k, p);
     if (pow) { //then nck is divisible by p
         return 0;
     }
-    ll up = factmodprime(n, p);
-    ll down = (factmodprime(k, p) * factmodprime(n - k, p)) % p;
-    ll downinv = powmodk(down, p - 2, p);
+    long long up = factmodprime(n, p);
+    long long down = (factmodprime(k, p) * factmodprime(n - k, p)) % p;
+    long long downinv = powmodk(down, p - 2, p);
     return (up * downinv) % p;
 }
 
 //recurence relation c(n,k)=c(n-1,k-1)+c(n-1,k)
-ll nCk(int n, int k) {
-    ll comb[n + 5][k + 5];
+long long nCk(int n, int k) {
+    long long comb[n + 5][k + 5];
     memset(comb, 0, sizeof(comb));
 
     for (int i = 0; i <= n; i++) {
@@ -57,7 +58,7 @@ ll nCk(int n, int k) {
 }
 
 //Pascal's Rule: iterative | Bottom-up approach
-ll nCk2(int N, int K) {
+long long nCk2(int N, int K) {
     ll comb[N + 5][N + 5];
     memset(comb, 0, sizeof(comb));
     comb[0][0] = 1;
@@ -81,7 +82,7 @@ int nCK3(int N, int K){		// O(K)
 
 
 //stirling numbers of the second kind divide int n groups with no size limitations
-ll stirling2(ll n, ll k) {
+long long stirling2(long long n, long long k) {
     if (n == k || k == 1) return 1;
     return k * stirling2(n - 1, k) + stirling2(n - 1, k - 1);
 }
