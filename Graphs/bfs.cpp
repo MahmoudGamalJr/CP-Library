@@ -5,7 +5,8 @@ int N;
 vector<vector<int> > adj;
 vector<int> dist;
 
-void bfs(int u) {
+void bfs(int u)
+{
     queue<int> q;
     q.push(u);
     while (!q.empty()) {
@@ -21,6 +22,7 @@ void bfs(int u) {
 }
 
 int main() {
+    
     adj.resize(N);
     dist.assign(N, -1);
     for (int i = 0; i < N; ++i) {   //preTraversal:
