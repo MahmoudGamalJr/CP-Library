@@ -5,7 +5,8 @@ int N;
 vector<vector<int> > adj;
 vector<int> color;
 
-bool bipartite_check(int u) {
+bool bipartite_check(int u) 
+{
     for (int v: adj[u]) {
         if (color[v] == -1) {
             color[v] = 1 ^ color[u];
@@ -18,6 +19,7 @@ bool bipartite_check(int u) {
 }
 
 int main() {
+    
     color.assign(N, -1);
     adj.resize(N);
     color[0] = 0;
