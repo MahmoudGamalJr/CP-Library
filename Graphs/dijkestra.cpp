@@ -9,7 +9,8 @@ int N, S;
 vi dist;
 
 //for all other nodes
-void dijkestra() {
+void dijkestra() 
+{
     dist.assign(N, INF);
     dist[S] = 0;
     priority_queue<ii, vector<ii>, greater<ii> > pq;
@@ -29,7 +30,8 @@ void dijkestra() {
 }
 
 //sssp to target node:
-int dijkestra(int T) {
+int dijkestra(int T)
+{
     dist.assign(N, INF);
     dist[S] = 0;
     priority_queue<ii, vector<ii>, greater<ii> > pq;
