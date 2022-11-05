@@ -1,15 +1,15 @@
 
 //check whether a number is prime or not
-bool isprime(ll x) { //O(sqrt(x))
+bool isprime(long long x) { //O(sqrt(x))
     if (x == 2) return true;
     if (x < 2 || x % 2 == 0) return false;
-    for (ll i = 3; i * i <= x; i += 2) {
+    for (long long i = 3; i * i <= x; i += 2) {
         if (x % i == 0) return false;
     }
     return true;
 }
 
-void sieve(ll r, vector<bool> &isprime) { //O(Nlog(log(N)))
+void sieve(long long r, vector<bool> &isprime) { //O(Nlog(log(N)))
     isprime.assign(r + 1, true);
     isprime[0] = isprime[1] = false;
     for (ll i = 2; i * i <= r; i++) {
@@ -78,7 +78,7 @@ void genprimedivs(int x, vector<ii> &primes) { //O(sqrt(x))
 }
 
 //count the number of divisors using prime factorization
-ll cntdivs(int x) { //O(sqrt(x))
+long long cntdivs(int x) { //O(sqrt(x))
     vector<ii> primes;
     genprimedivs(x, primes);
     ll cnt = 1;
@@ -113,13 +113,13 @@ int factprimepow(int x, int p){ //O(logp(x))
 }
 
 //count prime factors for each number in the range from 1 to r
-void sieveprimefactors(ll r, vector<int> &pf) { //O(sqrt(r))
+void sieveprimefactors(long long r, vector<int> &pf) { //O(sqrt(r))
     pf.assign(r + 1, 0);
-    for (ll i = 2; i * i <= r; i++) { //divisor
+    for (long long i = 2; i * i <= r; i++) { //divisor
         if (pf[i] == 0) {
-            for (ll j = i * 2; j <= r; j += i) {
+            for (long long j = i * 2; j <= r; j += i) {
                 int pow = 0;
-                ll k = j;
+                long long k = j;
                 while (k % i == 0) {
                     k /= i;
                     pow++;
