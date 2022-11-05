@@ -3,7 +3,8 @@ class SparseTable {
 	int A[], SpT[][];
 	boolean max;
 
-	SparseTable(int[] A, boolean max) {
+	SparseTable(int[] A, boolean max) 
+	{
 		int n = A.length;
 		this.A = A;
 		this.max = max;
@@ -22,7 +23,8 @@ class SparseTable {
 					SpT[i][j] = SpT[i + (1 << (j - 1))][j - 1];
 	}
 
-	int query(int i, int j) {
+	int query(int i, int j) 
+	{
 
 		int k = (int) Math.floor(Math.log(j - i + 1) / Math.log(2)); // 2^k <= (j-i+1)
 
