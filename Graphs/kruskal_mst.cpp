@@ -10,7 +10,8 @@ int E, V, T, u, v, w, mx;
 
 //connected, undirected, weighted graph
 
-class DSU {
+class DSU
+{
 private:
     vector<int> p, rank, set_size;
     int num_sets;
@@ -44,9 +45,15 @@ public:
         }
     }
 
-    int num() { return num_sets; }
+    int num() 
+    { 
+        return num_sets; 
+      }
 
-    int size(int i) { return set_size[findSet(i)]; }
+    int size(int i) 
+    {
+        return set_size[findSet(i)];
+    }
 };
 
 int mst(int k) {
