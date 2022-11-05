@@ -1,6 +1,7 @@
 string lastSubstring(string s) 
 {
     int n=s.length(),i=0,j=1,k=0;
+    
     while(j+k<n)
     {
         if(s[i+k]==s[j+k]) k++; 
