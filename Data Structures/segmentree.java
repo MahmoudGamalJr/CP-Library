@@ -65,7 +65,8 @@ class SegmentTree {
         lazy[node] = 0;
     }
 
-    void updateRange(int node, int l, int r, int rangeStart, int rangeEnd, long val) {
+    void updateRange(int node, int l, int r, int rangeStart, int rangeEnd, long val)
+    {
         if (r < rangeStart || l > rangeEnd)
             return;
         if (l >= rangeStart && r <= rangeEnd) {
