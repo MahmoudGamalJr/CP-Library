@@ -7,7 +7,8 @@ vector<bool> vis, art_point;
 vector<int> parent, dfs_num, dfs_low;
 int n, cnt, root, root_children;
 
-void dfs(int u) {
+void dfs(int u) 
+{
     dfs_num[u] = dfs_low[u] = ++cnt;   //update dfs low & dfs num
     for (int v: adj[u]) {
         if (!dfs_num[v]) {    //not visited
