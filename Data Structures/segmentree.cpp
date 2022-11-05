@@ -1,14 +1,20 @@
-
 template<typename T>
-struct segmentree {
+struct segmentree
+{
     int N;
     T *in;
     vector<T> stree, lazy;
 
-    inline T combine(T a, T b) { return a + b; }
+    inline T combine(T a, T b)
+    {
+        return a + b; 
+        
+    }
 
-    void build(int node, int l, int r) {
-        if (l == r) {
+    void build(int node, int l, int r)
+    {
+        if (l == r) 
+        {
             stree[node] = in[l - 1];
             return;
         }
@@ -18,7 +24,8 @@ struct segmentree {
         stree[node] = combine(stree[node << 1], stree[node << 1 | 1]);
     }
 
-    segmentree(T arr[], int n) {
+    segmentree(T arr[], int n) 
+    {
         in = arr; // 0-based
         N = n;
         stree.assign(4 * N, 0); //or pad
@@ -26,7 +33,8 @@ struct segmentree {
         build(1, 1, N);
     }
 
-    void updatePoint(int node, int l, int r, int idx, T val) {
+    void updatePoint(int node, int l, int r, int idx, T val)
+    {
         if (l == r) {
             stree[node] += val;
             return;
@@ -70,7 +78,8 @@ struct segmentree {
         updateRange(1, 1, N, l, r, val);
     }
 
-    T query(int node, int l, int r, int queryStart, int queryEnd) {
+    T query(int node, int l, int r, int queryStart, int queryEnd)
+    {
         if (r < queryStart || l > queryEnd)
             return 0; //dummy variable
         if (l >= queryStart && r <= queryEnd)
@@ -82,7 +91,8 @@ struct segmentree {
         return combine(q1, q2);
     }
 
-    T query(int l, int r) {
+    T query(int l, int r) 
+    {
         return query(1, 1, N, l, r);
     }
 
