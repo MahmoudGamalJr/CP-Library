@@ -1,21 +1,21 @@
 // ax==1 mod m iff a,m are coprimes
-ll modinverse(ll a, ll m) {
-    ll x, y;
-    ll d = extendedeuclid(a, m, x, y);
+long long modinverse(long long a, long longlong long m) {
+    long long x, y;
+    long long d = extendedeuclid(a, m, x, y);
     if (d != 1)return -1;
     return (x % m + m) % m;
 }
 
 // returns a^k % m
-ll powmodk(ll a, ll k, ll m) {
+long long powmodk(long long a, long long k, long long m) {
     if (k == 0) return 1;
-    ll r = powmodk(a, k / 2, m);
+    long long r = powmodk(a, k / 2, m);
     r = (r * r) % m;
     if (k % 2) r = (r * a) % m;
     return r;
 }
 
-ll modinversephi(ll a, int m) {
+long long modinversephi(long long a, int m) {
     if (isprime(m)) return powmodk(a, m - 2, m);
     return powmodk(a, phi(m) - 1, m);
 }
@@ -30,7 +30,7 @@ void modinverserange(vector<int> &inv, int p) {
 
 //solves the congruence equation  ax=b (mod m) => ax-ym=b (diophantine)
 void modularequation(vector<ll> &sol, ll a, ll b, ll m) {
-    ll x, y, g;
+    long long x, y, g;
     g = extendedeuclid(a, m, x, y);
     if (b % g != 0) {
         return; // no solutions
@@ -84,8 +84,8 @@ void phigenerator(int range) {
 }
 
 //phi(n!)=(n is prime then n-1 else n) * (phi(n-1)!)
-ll phifactorial(int x) {
-    ll ret = 1;
+long long phifactorial(int x) {
+    long long ret = 1;
     for (int i = 2; i <= x; i++)
         ret *= isprime(i) ? i - 1 : i;
     return ret;
