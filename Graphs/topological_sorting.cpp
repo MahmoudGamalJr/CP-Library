@@ -9,7 +9,8 @@ vector<bool> vis;
 
 //if not DAG algorithms will fail!
 
-void toposort_dfs(int u) {
+void toposort_dfs(int u) 
+{
     for (int v:adj[u]) {
         if (!vis[v]) {
             vis[v] = 1;
@@ -29,7 +30,8 @@ void toposort_bfs() {
     for (int i = 0; i < N; i++) {
         if (!parent[i]) roots.push(i);
     }
-    while (!roots.empty()) {
+    while (!roots.empty()) 
+    {
         int u = roots.front();
         roots.pop();
         sorted_array.push_back(u);
