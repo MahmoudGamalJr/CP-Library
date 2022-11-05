@@ -5,7 +5,8 @@ vi adj[N];
 
 //can also be done using the 2 dfs/bfs to obtain start and end of diameter
 
-int get_diameter(int u, int p = -1){
+int get_diameter(int u, int p = -1)
+{
 	int mxheight[3] = {-1,-1,-1};
 
 	for(int v : adj[u]){
@@ -27,10 +28,12 @@ int get_diameter(int u, int p = -1){
 //both trees should have either 1 center or 2
 //or find roots using tree shrinking
 
-string canonical_form(int u, int p = -1){
+string canonical_form(int u, int p = -1)
+{
 	vector<string> children;
 
-	for(int v : adj[u]){
+	for(int v : adj[u])
+	{
 		children.push_back(canonical_form(v,u));
 	}
 
