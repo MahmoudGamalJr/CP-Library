@@ -8,7 +8,8 @@ vector<int> parent, dfs_num, dfs_low;
 int cnt, scc;
 stack<int> st;
 
-void tarjan_scc(int u) {
+void tarjan_scc(int u) 
+{
     dfs_num[u] = dfs_low[u] = ++cnt;
     st.push(u);
     for (int v:adj[u]) {
@@ -29,7 +30,8 @@ void tarjan_scc(int u) {
 
 }
 
-void tarjan_scc() {
+void tarjan_scc() 
+{
     for (int i = 0; i < N; ++i) {
         if (!dfs_num[i])    //preTraversal
             tarjan_scc(i);
