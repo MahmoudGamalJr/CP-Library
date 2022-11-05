@@ -1,5 +1,6 @@
 
-static int[] zAlgorithm(char[] s) {
+static int[] zAlgorithm(char[] s)
+{
     int n = s.length;
     int[] z = new int[n];
     for (int i = 1, l = 0, r = 0; i < n; i++) {
@@ -13,7 +14,8 @@ static int[] zAlgorithm(char[] s) {
 }
 
 
-static String getLongestPalindromePrefix(String s) {
+static String getLongestPalindromePrefix(String s)
+{
     String tmp = s + new StringBuilder(s).reverse().toString();
     int[] z = zAlgorithm(tmp.toCharArray());
     for (int i = s.length(); i < z.length; i++)
@@ -21,7 +23,8 @@ static String getLongestPalindromePrefix(String s) {
     return "";
 }
 
-static String getLongestPalindromicSuffix(String s) {
+static String getLongestPalindromicSuffix(String s)
+{
     String tmp = new StringBuilder(s).reverse().toString() + s;
     int[] z = zAlgorithm(tmp.toCharArray());
     for (int i = s.length(); i < z.length; i++)
